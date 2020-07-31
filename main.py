@@ -34,23 +34,26 @@ def viewArr(arr):
 # 前世代の形質を受け継いだ配列を生み出す
 def getOldGenWinner(gen_arr, gen_population_result):
     # 個体ごと
-    for pop_cnt, i in enumerate(gen_arr):
-        # 個体の配列
-        result = []
-        for index,g_p_result in enumerate(gen_population_result):
-            if g_p_result == 1:
-                for arr in i:
-                    # [1, 0, 0, 0, 1, 1, 0, 1, 0, 0]
-                    # print(arr)
-                    for line_arr in arr:
-                        
-                        # print(gen_population_result)
-                        # for index,g_p_result in enumerate(gen_population_result):
-                            # if g_p_result == 1:
-                                result.append(line_arr[index])
-                        print(result)
-                        # print(random.randint(0,len(result)))
-    return gen_arr
+    winner = []
+    for index,g_p_result in enumerate(gen_population_result):
+        if g_p_result == 1:
+            winner.append(index)
+    # for pop_cnt, i in enumerate(gen_arr):
+    # 個体の配列
+    result = []
+
+    for i_cnt, i in enumerate(gen_arr[0]):
+        line = []
+        for j_cnt, j in enumerate(i):
+            win = []
+            for k in winner:
+                win.append(gen_arr[k][i_cnt][j_cnt])
+            line.append(win[random.randint(0, len(win)-1)])
+        print(line)
+        result.append(line)
+    # print(winner)
+    # return gen_arr
+    return result
 
 # Q and A
 def q_and_a(qa_str):
