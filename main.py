@@ -41,6 +41,7 @@ def getOldGenWinner(gen_arr, gen_population_result):
     # for pop_cnt, i in enumerate(gen_arr):
     # 個体の配列
     result = []
+    pop = []
 
     for i_cnt, i in enumerate(gen_arr[0]):
         line = []
@@ -49,10 +50,13 @@ def getOldGenWinner(gen_arr, gen_population_result):
             for k in winner:
                 win.append(gen_arr[k][i_cnt][j_cnt])
             line.append(win[random.randint(0, len(win)-1)])
-        print(line)
-        result.append(line)
+        # print(line)
+        pop.append(line)
     # print(winner)
+
     # return gen_arr
+    for i in gen_population_result:
+        result.append(pop)
     return result
 
 # Q and A
