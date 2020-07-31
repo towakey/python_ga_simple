@@ -70,6 +70,10 @@ def q_and_a(qa_str):
     return qa
 
 
+
+
+
+
 # 1世代の個体数の設定
 gen_population = 5
 
